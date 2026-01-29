@@ -25,6 +25,5 @@ int main(){
     cin >> n;
     cout << brute(n) << endl;
     cout << optimal(n) << endl;
-    // cout << app3(n) << endl;
     return 0;
 }
