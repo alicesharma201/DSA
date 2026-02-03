@@ -52,8 +52,6 @@ int main(){
     for(int i : betterResult) cout << i << " ";
     cout << endl;
 
-    cout << "STL: ";
-    vector<int> vec3 = {65, 66, 67, 68, 69};
     /*
     using std::reverse
     The Standard Template Library provides a built-in reverse() function in <algorithm >, 
@@ -61,6 +59,8 @@ int main(){
     It uses two pointers internally to swap elements from both ends toward the center, 
     making the solution efficient and concise.
     */
+    cout << "STL: ";
+    vector<int> vec3 = {65, 66, 67, 68, 69};
     reverse(vec3.begin(), vec3.end());
     for(int i : vec3) cout << i << " ";
     
