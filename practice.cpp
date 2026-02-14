@@ -1,46 +1,39 @@
 #include<bits/stdc++.h>
-
-vector<int> brute(vector<int> arr){
-    int size = arr.size();
-    vector<int> aux(size);
-    for(int i = 0; i < size; i++){
-        aux[i] = arr[size-1-i];
-    }
-    return aux;
-}
-
-vector<int> better(vector<int> arr){
-    int size = arr.size();
-    int left = 0;
-    int right = size-1;
-    while(left < right){
-        swap(arr[left], arr[right]);
-        left++;
-        right--;
-    }
-    return arr;
-}
-
-vector<int> stl(vector<int> arr){
-    reverse(arr.begin(), arr.end());
-    return arr;
-}
-
+/*
+1. take input of number of elements of array
+2. enter the elements of array
+3. precompute the count of numbers in hash array
+4. take input of the number of queries
+5. enter the queries
+6. fetch the count of numbers from hash array
+*/
 int main(){
-    vector<int> arr1 = {1, 2, 3, 4, 5};
-    vector<int> aux1 = brute(arr1);
-    for(int i : aux1) cout << i << " ";
-    cout << endl;
+    int n;
+    cout << "Enter the number of elements: ";
+    cin >> n;
 
-    vector<int> arr2 = {5, 10, 15, 20};
-    vector<int> aux2 = better(arr2);
-    for(int i : aux2) cout << i << " ";
-    cout << endl;
+    cout << "Enter the elements: ";
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+    }
 
-    vector<int> arr3 = {67, 68, 69, 70};
-    vector<int> aux3 = stl(arr3);
-    for(int i : aux3) cout << i << " ";
-    cout << endl;
+    // precomputing
+    int hash[100] = {0};
+    for(int i = 0; i < n; i++){
+        hash[arr[i]] += 1;
+    }
 
+    int q;
+    cout << "Number of queries: ";
+    cin >> q;
+    cout << "Queries: ";
+    while(q--){
+        int number;
+        cin >> number;
+        cout << number << " : " << hash[number] << endl;
+    }
+
+    
     return 0;
 }

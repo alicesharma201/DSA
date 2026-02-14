@@ -92,8 +92,7 @@ void print9(int n){
 void print10(int n){
     for(int i = 1; i <= (2*n)-1; i++){
         int lines = i;
-        if(i > n) 
-            lines = (2*n)-i;
+        if(i > n) lines = (2*n)-i;
         for(int j = 1; j <= lines; j++){
             cout << "* ";
         }
@@ -258,7 +257,7 @@ int main(){
     for(int i = 0; i < t; i++){
         int n;
         cin >> n;
-        print22(n);
+        print19(n);
     }
     return 0;
 }
