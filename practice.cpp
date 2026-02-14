@@ -1,39 +1,37 @@
-#include<bits/stdc++.h>
-/*
-1. take input of number of elements of array
-2. enter the elements of array
-3. precompute the count of numbers in hash array
-4. take input of the number of queries
-5. enter the queries
-6. fetch the count of numbers from hash array
-*/
-int main(){
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
+#include <bits/stdc++.h>
+using namespace std;
 
-    cout << "Enter the elements: ";
-    int arr[n];
-    for(int i = 0; i < n; i++){
-        cin >> arr[i];
+// Function to count frequency of each element in the array
+void countFreq(int arr[], int n) {
+    // Create a visited array to mark elements that are already processed
+    vector<bool> visited(n, false);
+
+    // Traverse through all elements of the array
+    for (int i = 0; i < n; i++) {
+        // Skip this element if it's already processed
+        if (visited[i] == true)
+            continue;
+
+        // Count the frequency of arr[i]
+        int count = 1;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] == arr[j]) {
+                visited[j] = true; // Mark arr[j] as processed
+                count++;
+            }
+        }
+
+        // Output the element and its count
+        cout << arr[i] << " " << count << endl;
     }
+}
 
-    // precomputing
-    int hash[100] = {0};
-    for(int i = 0; i < n; i++){
-        hash[arr[i]] += 1;
-    }
+int main() {
+    // Input array
+    int arr[] = {10, 5, 10, 15, 10, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-    int q;
-    cout << "Number of queries: ";
-    cin >> q;
-    cout << "Queries: ";
-    while(q--){
-        int number;
-        cin >> number;
-        cout << number << " : " << hash[number] << endl;
-    }
-
-    
+    // Call the function to count frequencies
+    countFreq(arr, n);
     return 0;
 }
