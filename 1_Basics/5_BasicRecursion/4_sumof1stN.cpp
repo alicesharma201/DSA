@@ -26,7 +26,7 @@ recursion(5)
                               |
                               └── 2 + recursion(1)
                                        |
-                                       └── 1   (base case)
+                                       └── 1 (base case)
 */
 int main(){
     int n;

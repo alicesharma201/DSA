@@ -6,9 +6,8 @@ void Forward(int current, int n){
     Forward(current, n);
 }
 void Backtrack(int current){
-    if(current == 1) return;
-    current--;
-    Backtrack(current);
+    if(current == 0) return;
+    Backtrack(current-1);
     cout << current << " ";
 }
 int main(){
@@ -16,6 +15,6 @@ int main(){
     cout << "Forward Recursion: ";
     Forward(1, n);
     cout << endl << "Backtracking: ";
-    Backtrack(n+1);
+    Backtrack(n);
     return 0;
 }

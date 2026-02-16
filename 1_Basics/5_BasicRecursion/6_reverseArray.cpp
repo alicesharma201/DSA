@@ -54,7 +54,7 @@ int main(){
 
     /*
     using std::reverse
-    The Standard Template Library provides a built-in reverse() function in <algorithm >, 
+    The Standard Template Library provides a built-in reverse() function in <algorithm>, 
     which reverses the contents of a container in-place. 
     It uses two pointers internally to swap elements from both ends toward the center, 
     making the solution efficient and concise.
