@@ -1,5 +1,7 @@
+// TC: O(nlog2(n))
+// SC: O(n) because of temp
 #include<bits/stdc++.h>
-void Merge(vector<int>& vec, int low, int mid, int high){
+void Merge(vector<int>& vec, int low, int mid, int high){ // TC: O(n)
     vector<int> temp;
     int left = low;
     int right = mid+1;
@@ -25,7 +27,7 @@ void Merge(vector<int>& vec, int low, int mid, int high){
         vec[i] = temp[i-low];
     }
 }
-void mergeSort(vector<int>& vec, int low, int high){
+void mergeSort(vector<int>& vec, int low, int high){ // TC: (log2(n))
     if(low == high) return;
     int mid = (low+high)/2;
     mergeSort(vec, low, mid);

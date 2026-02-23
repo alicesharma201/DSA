@@ -3,9 +3,9 @@
 // avg & worst O(n^2)
 #include<bits/stdc++.h>
 void bubbleSort(vector<int>& vec, int n){
-    for(int i = 0; i < n-1; i++){
+    for(int i = 0; i <= n-2; i++){
         bool didSwap = false; // optimized bubble sort
-        for(int j = 0; j < n-i-1; j++){
+        for(int j = 0; j <= n-i-2; j++){
             // j+1 ≤ n-1
             //   j ≤ n-2
             if(vec[j] > vec[j+1]){  
