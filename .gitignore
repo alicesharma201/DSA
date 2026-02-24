@@ -1,4 +1,5 @@
 .vscode/
 bin/
+**/bin/
 practice1.cpp
 practice2.cpp
