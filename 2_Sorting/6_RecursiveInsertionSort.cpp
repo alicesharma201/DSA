@@ -13,7 +13,6 @@ void recInsertion(vector<int>& vec, int n, int i){
 int main(){
     vector<int> vec = {3, 6, 2, 7, 4, 1, 5};
     int n = vec.size();
-    // insertion(vec, n);
     recInsertion(vec, n, 1);
     for(auto it : vec) cout << it << ' ';
     return 0;
