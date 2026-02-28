@@ -19,3 +19,25 @@ int main(){
     cout << (optimal(arr3) ? "True" : "False") << endl;
     return 0;
 }
+/* 
+Leetcode 1752: Given an array nums, return true if the array was originally sorted in
+non-decreasing order, then rotated some number of positions (including zero). Otherwise, 
+return false.
+
+// think of it like a circular loop
+
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int n = nums.size();
+        int breaks = 0;
+        for(int i = 0; i < n; i++){
+            if(nums[i] > nums[(i+1)%n]){
+                breaks++;
+            }
+        }
+        if(breaks > 1) return false;
+        return true;
+    }
+};
+*/
