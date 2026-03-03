@@ -1,9 +1,10 @@
 #include<bits/stdc++.h>
-void rotateArray(vector<int>& vec, int k, string dir){
+enum Direction {LEFT, RIGHT};
+void rotateArray(vector<int>& vec, int k, Direction dir){
     int n = vec.size();
     if(n == 0) return;
     k = k % n;
-    if(dir == "left"){
+    if(dir == LEFT){
         vector<int> leftTemp(k);
         for(int i = 0; i < k; i++) leftTemp[i] = vec[i];
         for(int i = k; i < n; i++) vec[i-k] = vec[i];
@@ -16,11 +17,11 @@ void rotateArray(vector<int>& vec, int k, string dir){
         for(int i = 0; i < k; i++) vec[i] = rightTemp[i];
     }
 }
-void constantSpace(vector<int>& vec, int k, string dir){
+void constantSpace(vector<int>& vec, int k, Direction dir){
     int n = vec.size();
     if(n == 0) return;
     k = k % n;
-    if(dir == "left"){
+    if(dir == LEFT){
         int l = 0;
         int r = n-1;
         while(l < r){
@@ -61,11 +62,11 @@ void constantSpace(vector<int>& vec, int k, string dir){
         }
     }
 }
-void stl(vector<int>& vec, int k, string dir){
+void stl(vector<int>& vec, int k, Direction dir){
     int n = vec.size();
     if(n == 0) return;
     k = k % n;
-    if(dir == "left"){
+    if(dir == LEFT){
         reverse(vec.begin(), vec.end());
         reverse(vec.begin(), vec.end()-k);
         reverse(vec.end()-k, vec.end());
@@ -78,25 +79,25 @@ void stl(vector<int>& vec, int k, string dir){
 }
 int main(){
 
-    // vector<int> vec1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    // int k1 = 3;
-    // string dir1 = "left";
-    // rotateArray(vec1, k1, dir1);
-    // for(int v : vec1) cout << v << " ";
+    vector<int> vec1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int k1 = 3;
+    Direction dir1 = LEFT;
+    rotateArray(vec1, k1, dir1);
+    for(int v : vec1) cout << v << " ";
 
-    // cout << endl;
+    cout << endl;
 
-    // vector<int> vec2 = {1, 2, 3, 4, 5, 6, 7}; 
-    // int k2 = 3;
-    // string dir2 = "right";
-    // constantSpace(vec2, k2, dir2);
-    // for(int v : vec2) cout << v << " ";
+    vector<int> vec2 = {1, 2, 3, 4, 5, 6, 7}; 
+    int k2 = 3;
+    Direction dir2 = RIGHT;
+    constantSpace(vec2, k2, dir2);
+    for(int v : vec2) cout << v << " ";
 
-    // cout << endl;
+    cout << endl;
 
     vector<int> vec3 = {1, 2, 3, 4, 5, 6, 7};
     int k3 = 2;
-    string dir3 = "right";
+    Direction dir3 = LEFT;
     stl(vec3, k3, dir3);
     for(int v : vec3) cout << v << " ";
 
