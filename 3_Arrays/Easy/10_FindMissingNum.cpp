@@ -47,12 +47,12 @@ int xorMethod(vector<int>& vec){
     int n = vec.size();
     int xor1 = 0, xor2 = 0;
     for(int i = 1; i <= n+1; i++){
-        xor1 ^= i;
+        xor1 ^= i; // 1 ^ 2 ^ 3 ^ 4 ^ 5
     }
     for(int i = 0; i < n; i++){
-        xor2 ^= vec[i];
+        xor2 ^= vec[i]; // 3 ^ 5 ^ 1 ^ 2
     }
-    return xor1 ^ xor2;
+    return xor1 ^ xor2; // (1 ^ 2 ^ 3 ^ 4 ^ 5) ^ (3 ^ 5 ^ 1 ^ 2) = 4
 }
 int main(){
     vector<int> vec = {3, 5, 1, 2};
