@@ -42,6 +42,10 @@ int sumMethod(vector<int>& vec){
     return (sum - actualSum);
 }
 int xorMethod(vector<int>& vec){
+    // Property of XOR : 
+    // a ^ a = 0
+    // a ^ 0 = a
+
     // TC: O(n)
     // SC: O(1)
     int n = vec.size();
