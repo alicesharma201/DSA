@@ -20,7 +20,7 @@ int better(vector<int>& nums, long long k){
     // TC: O(n) average if unordered_map is used
     // SC: O(n) 
 
-    // This works for positives and negatives.
+    // This is optimal for positives and negatives.
     // If the array contains ONLY positives, a sliding window solution can do it in O(n) with O(1) space.
     
     /* Summary:
@@ -43,7 +43,6 @@ int better(vector<int>& nums, long long k){
 
     if we find a sum which does not exist in the map:
     we simply store the sum as key with its index as value in the hash map
-
     */
     map<long long, int> preSumMap;
     int maxLen = 0;
@@ -65,10 +64,34 @@ int better(vector<int>& nums, long long k){
     }
     return maxLen;
 }
+int optimal(vector<int>& nums, int k){ 
+    // TC: O(2n) = O(n)
+    // SC: O(1)
+
+    // sliding window: the sum keeps increasing as we traverse the array, when the sum exceeds k, start subtracting elements from the front
+    int i = 0; // right
+    int j = 0; // left
+    long long sum = 0;
+    int maxLen = 0;
+    int n = nums.size();
+    while(i < n){ 
+        sum += nums[i];
+        while(j <= i && sum > k){ // this only runs for O(n) for the whole iteration of outer while loop
+            sum -= nums[j];
+            j++;
+        }
+        if(sum == k){
+            maxLen = max(maxLen, i-j+1);
+        }
+        i++;
+    }
+    return maxLen;
+}
 int main(){
-    vector<int> nums = {10, 5, 2, 7, 1, 9};
-    int k = 15;
+    vector<int> nums = {1, 2, 3, 1, 1, 1, 1, 3, 3};
+    int k = 6;
     cout << brute(nums, k) << endl;
     cout << better(nums, k) << endl;
+    cout << optimal(nums, k) << endl;
     return 0;
 }
