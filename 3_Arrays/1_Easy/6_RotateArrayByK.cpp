@@ -17,13 +17,13 @@ void rotateArray(vector<int>& vec, int k, Direction dir){
         for(int i = 0; i < k; i++) vec[i] = rightTemp[i];
     }
 }
-void constantSpace(vector<int>& vec, int k, Direction dir){
+void constantSpace(vector<int>& vec, int k, Direction dir){ // two pointer method
     int n = vec.size();
     if(n == 0) return;
     k = k % n;
+    int l = 0;
+    int r = n-1;
     if(dir == LEFT){
-        int l = 0;
-        int r = n-1;
         while(l < r){
             swap(vec[l],vec[r]);
             l++; r--;
@@ -42,8 +42,6 @@ void constantSpace(vector<int>& vec, int k, Direction dir){
         }
     }
     else{
-        int l = 0;
-        int r = n-1;
         while(l < r){
             swap(vec[l],vec[r]);
             l++; r--;
@@ -81,24 +79,21 @@ int main(){
 
     vector<int> vec1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     int k1 = 3;
-    Direction dir1 = LEFT;
-    rotateArray(vec1, k1, dir1);
+    rotateArray(vec1, k1, LEFT);
     for(int v : vec1) cout << v << " ";
 
     cout << endl;
 
     vector<int> vec2 = {1, 2, 3, 4, 5, 6, 7}; 
     int k2 = 3;
-    Direction dir2 = RIGHT;
-    constantSpace(vec2, k2, dir2);
+    constantSpace(vec2, k2, RIGHT);
     for(int v : vec2) cout << v << " ";
 
     cout << endl;
 
     vector<int> vec3 = {1, 2, 3, 4, 5, 6, 7};
     int k3 = 2;
-    Direction dir3 = LEFT;
-    stl(vec3, k3, dir3);
+    stl(vec3, k3, LEFT);
     for(int v : vec3) cout << v << " ";
 
     return 0;

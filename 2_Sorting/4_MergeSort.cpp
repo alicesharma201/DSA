@@ -1,6 +1,8 @@
-// TC: O(nlog2(n))
+// TC: O(nlog(n))
 // SC: O(n) because of temp
 #include<bits/stdc++.h>
+// low and high are just ranges
+// while left and right are pointers
 void Merge(vector<int>& vec, int low, int mid, int high){ // TC: O(n)
     vector<int> temp;
     int left = low;
@@ -35,14 +37,8 @@ void mergeSort(vector<int>& vec, int low, int high){ // TC: (log2(n))
     Merge(vec, low, mid, high);
 }
 int main(){
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    cout << "Enter the elements: ";
-    vector<int> vec(n);
-    for(int i = 0; i < n; i++){
-        cin >> vec[i];
-    }
+    vector<int> vec = {6, 2, 7, 3, 1, 4, 9, 5, 8};
+    int n = vec.size();
     mergeSort(vec, 0, n-1);
     for(int i = 0; i < n; i++){
         cout << vec[i] << " ";

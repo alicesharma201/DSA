@@ -32,7 +32,7 @@ public:
         int n = nums.size();
         int breaks = 0;
         for(int i = 0; i < n; i++){
-            if(nums[i] > nums[(i+1)%n]){
+            if(nums[i] > nums[(i+1)%n]){ // if i+1 = n, then n%n = 0 (circular loop complete)
                 breaks++;
             }
         }

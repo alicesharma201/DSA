@@ -8,7 +8,7 @@ int linearSearch(int arr[], int n, int find){
 int main(){
     int arr[] = {3, 2, 1, 6, 7, 8};
     int n = sizeof(arr)/sizeof(arr[0]);
-    int find = 5;
+    int find = 6;
     int result = linearSearch(arr, n, find);
     if(result == -1) cout << "Element not found";
     else cout << "Element " << find << " is found at index " << result;
