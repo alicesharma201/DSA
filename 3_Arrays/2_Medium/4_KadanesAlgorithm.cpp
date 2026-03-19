@@ -17,7 +17,7 @@ long long optimal(vector<int>& nums){
     // TC: O(n)
     // SC: O(1)
 
-    // Kadane's Algorithm: Do not carray negatives into future
+    // Kadane's Algorithm: Do not carry negatives into future
 
     int n = nums.size();
     long long sum = 0;
