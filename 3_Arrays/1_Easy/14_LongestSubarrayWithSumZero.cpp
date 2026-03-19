@@ -16,8 +16,7 @@ int brute(vector<int>& nums){
     return maxLen;
 }
 int optimal(vector<int>& nums){ 
-    // TC: O(n log n) using map
-    // TC: O(n) average if unordered_map is used
+    // TC: O(n log n) using map and O(n) average if unordered_map is used
     // SC: O(n) 
     map<long long, int> preSumMap;
     int maxLen = 0;
