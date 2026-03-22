@@ -19,12 +19,12 @@ void optimal(vector<int>& vec, int n){ // two pointer method
     int j = -1;
     for(int i = 0; i < n; i++){ 
         if(vec[i] == 0){
-            j = i;
+            j = i; // we found our first zero
             break; 
         }
     }
-    if(j == -1) return;
-    for(int i = j+1; i < n; i++){ 
+    if(j == -1) return; // If this is true, meaning there were no zeroes found in the array, therefore we can return
+    for(int i = j+1; i < n; i++){ // we will start right next from the first zero, the we will swap it with non zero elements
         if(vec[i] != 0){
             swap(vec[i], vec[j]);
             j++;

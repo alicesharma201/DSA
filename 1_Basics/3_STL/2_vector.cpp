@@ -104,7 +104,7 @@ int main(){
 
     cout << "\n____________________________________________________________________________________\n";
 
-    cout << "Insert function:\n";
+    cout << "Insert function:\n"; // TC: O(n)
     vector<int> v8(4, 20); // vector of 4 elements of '20'
     for(auto it : v8) cout << it << " ";
     cout << endl;

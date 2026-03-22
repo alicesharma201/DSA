@@ -29,7 +29,7 @@ int better(vector<int>& nums){
 
     // this method isn't ideal because if numbers are large then it'll cause huge waste of memory
 }
-int optimal(vector<int>& nums){
+int optimal(vector<int>& nums){ // XOR method
     // TC: O(n)
     // SC: O(1)
     int n = nums.size();

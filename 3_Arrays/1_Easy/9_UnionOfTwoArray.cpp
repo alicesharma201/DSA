@@ -19,7 +19,7 @@ vector<int> setMethod(vector<int>& arr1, vector<int>& arr2){
     vector<int> Union(st.begin(), st.end());
     return Union;
 }
-vector<int> optimal(vector<int>& arr1, vector<int>& arr2, int m, int n){
+vector<int> optimal(vector<int>& arr1, vector<int>& arr2, int m, int n){ // Two pointer
     // TC: O(m+n)
     // SC: O(m+n)
     int i = 0, j = 0;
