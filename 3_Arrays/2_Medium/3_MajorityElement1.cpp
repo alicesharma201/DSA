@@ -29,10 +29,9 @@ int optimal(vector<int>& nums){
     /* 
     Moore's Voting Algorithm:
         - intially: element, count = 0
-        - if any element appears: element = nums[i], count = 1
+        - if count = 0: element = nums[i], count = 1 (new element)
         - if nums[i] == element: count++;
         - if nums[i] != element: count--;
-        - if count = 0: element = nums[i] (new element)
     - after this check if element occurs more than n/2 times
     - then return element
 
@@ -44,7 +43,7 @@ int optimal(vector<int>& nums){
     for(int i = 0; i < n; i++){
         if(count == 0){ // if we dont't check this condition first the count might become negative
             element = nums[i];
-            count++;
+            count = 1;
         }
         else if(element == nums[i]) count++;
         else if(element != nums[i]) count--;
