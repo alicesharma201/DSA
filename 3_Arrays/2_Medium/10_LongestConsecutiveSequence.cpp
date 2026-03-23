@@ -1,12 +1,16 @@
 #include<bits/stdc++.h>
 int self(vector<int> nums){
-    // TC: O(nlogn + n)
+    // TC: O(nlogn + n) = O(nlogn)
     // SC: O(1)
     int n = nums.size();
+    if(n == 0) return 0;
     sort(nums.begin(), nums.end());
-    int maxCons = 0;
+    int maxCons = 1;
     int cons = 1;
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n-1; i++){
+        if(nums[i] == nums[i+1]){
+            i++;
+        }
         if(nums[i]+1 == nums[i+1]){
             cons++;
             maxCons = max(cons, maxCons);
