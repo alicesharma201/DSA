@@ -70,7 +70,10 @@ int better(vector<int> nums){
     }
     return longest;
 }
-int optimal(vector<int>& nums){ // to not destroy the array and get rid of O(nlogn)
+int optimal(vector<int>& nums){ // to not destroy the array and get rid of O(nlogn), based on brute force approach
+    // unordered_set TC: for best or average: O(1) ; for worst: O(n)
+    // TC: for loop: O(N) + while loop: O(2N) = O(3N)
+    // SC: O(N)
     int n = nums.size();
     if(n == 0) return 0;
     int longest = 1;
