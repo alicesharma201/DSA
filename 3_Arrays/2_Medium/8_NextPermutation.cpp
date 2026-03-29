@@ -35,7 +35,7 @@ vector<int> optimal(vector<int> nums){
     for(int i = n-2; i >= 0; i--){
         if(nums[i] < nums[i+1]){
             idx = i; // break point
-            break;
+            break; // make sure to break here
         }
     }
     if(idx == -1){ // if break point not found
@@ -45,7 +45,7 @@ vector<int> optimal(vector<int> nums){
     for(int i = n-1; i > idx; i--){
         if(nums[idx] < nums[i]){
             swap(nums[idx], nums[i]);
-            break;
+            break; // make sure to break here
         }
     }
     reverse(nums.begin()+idx+1, nums.end());

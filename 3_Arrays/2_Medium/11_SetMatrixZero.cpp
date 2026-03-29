@@ -50,6 +50,14 @@ vector<vector<int>> brute(vector<vector<int>> nums){
 vector<vector<int>> better(vector<vector<int>> nums){
     // TC: O(m*n + m*n) = O(m*n)
     // SC: O(m+n)
+
+    /* Matrix: (3x4)
+    ◼️ 🟩 🟩 🟩 🟩
+    🟥 ⬜️ ⬜️ ⬜️ ⬜️
+    🟥 ⬜️ ⬜️ ⬜️ ⬜️
+    🟥 ⬜️ ⬜️ ⬜️ ⬜️
+    */
+
     int m = nums.size(), n = nums[0].size();
     vector<int> rows(m, 0);
     vector<int> columns(n, 0);
@@ -77,7 +85,7 @@ vector<vector<int>> optimal(vector<vector<int>> nums){ // in-placed
     🟥: nums[i][0] (first column, it makes changes in the rows)
     🟩: nums[0][j] (first row, it makes changes in the cols)
 
-    Matrix:
+    Matrix: (3x4)
     🟩 <- col0 
     🟥 🟩 🟩 🟩
     🟥 ⬜️ ⬜️ ⬜️
