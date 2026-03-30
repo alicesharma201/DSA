@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 long long maxSubarraySum(vector<int>& nums){
-    // TC: 
-    // SC: 
+    // TC: O(n)
+    // SC: O(1)
     int n = nums.size();
     long long sum = 0;
     long long maxi = LLONG_MIN;
