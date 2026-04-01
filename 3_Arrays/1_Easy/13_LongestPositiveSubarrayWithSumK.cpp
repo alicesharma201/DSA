@@ -72,21 +72,21 @@ int optimal(vector<int>& nums, int k){
 
     // sliding window: the sum keeps increasing as we traverse the array, when the sum exceeds k, start subtracting elements from the front
     
-    int i = 0; // right
-    int j = 0; // left
+    int right = 0; // right
+    int left = 0; // left
     long long sum = 0;
     int maxLen = 0;
     int n = nums.size();
-    while(i < n){ 
-        sum += nums[i];
-        while(j <= i && sum > k){ // this only runs for O(n) for the whole iteration of outer while loop
-            sum -= nums[j];
-            j++;
+    while(right < n){ 
+        sum += nums[right];
+        while(left <= right && sum > k){ // this only runs for O(n) for the whole iteration of outer while loop
+            sum -= nums[left];
+            left++;
         }
         if(sum == k){
-            maxLen = max(maxLen, i-j+1);
+            maxLen = max(maxLen, right-left+1);
         }
-        i++;
+        right++;
     }
     return maxLen;
 }

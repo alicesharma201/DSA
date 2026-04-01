@@ -1,7 +1,7 @@
 // Take an element and put it in its correct order
 // its like organising a deck cards in an order
 #include<bits/stdc++.h>
-vector<int> insertionSort(vector<int>& vec, int n){
+void insertionSort(vector<int>& vec, int n){
     for(int i = 1; i < n; i++){
         int key = vec[i];
         int j = i - 1;
@@ -11,7 +11,6 @@ vector<int> insertionSort(vector<int>& vec, int n){
         }
         vec[j+1] = key; // shifting the key
     }
-    return vec;
 }
 int main(){
     int n;
@@ -23,6 +22,6 @@ int main(){
         cin >> vec[i];
     }
     insertionSort(vec, n);
-    for(auto el : vec) cout << el << " ";
+    for(int i : vec) cout << i << " ";
     return 0;
 }
