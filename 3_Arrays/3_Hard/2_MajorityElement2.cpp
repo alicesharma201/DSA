@@ -62,7 +62,7 @@ vector<int> optimal(vector<int>& nums){
     }
     if(cnt1 > n/3) temp.push_back(el1);
     if(cnt2 > n/3) temp.push_back(el2);
-    sort(temp.begin(), temp.end());
+    sort(temp.begin(), temp.end()); // TC: O(2log2) = constant
     return temp;
 }
 int main(){

@@ -45,12 +45,12 @@ auto bruteTriangle(int N){
     //         temp.add(brutePrintRow(N))
     //     ans.add(temp)
 }
-vector<long long> generateRow(int N){
+vector<long long> generateRow(int i){
     long long ans = 1;
     vector<long long> temp;
-    for(int col = 1; col <= N; col++){
+    for(int col = 1; col <= i; col++){
         temp.push_back(ans);
-        ans = (ans * (N-col))/col;
+        ans = (ans * (i-col))/col;
     }
     return temp;
 }
