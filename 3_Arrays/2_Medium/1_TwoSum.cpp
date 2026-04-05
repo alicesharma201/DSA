@@ -34,7 +34,7 @@ public:
         for(int i = 0; i < n; i++){
             int other = target - nums[i];
             if(hash.find(other) != hash.end()) return "YES";
-            hash[nums[i]] = i;
+            hash[nums[i]] = i; // we insert after checking the number inside the hash map because: We cannot put all numbers in the set from the beginning. If we do that, we might accidentally use the same number again from the same position, which is not allowed.
         }
         return "NO";
     }
