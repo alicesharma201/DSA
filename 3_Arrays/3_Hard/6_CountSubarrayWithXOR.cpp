@@ -19,21 +19,26 @@ int optimal(vector<int>& nums, int k){
     x ^ k ^ k = xor ^ k
     x = xor ^ k
     */
+
+    // TC: O(nlogn)
+    // SC: O(n)
+
     int n = nums.size();
     map<int, int> prefixXor;
+    prefixXor[0] = 1; // so we set prefixXor = 1 so that we could add it to the counter later (base case)
     int Xor = 0;
     int xount = 0;
     for(int i = 0; i < n; i++){
         Xor ^= nums[i];
-        if(Xor == k) xount++;
-        int remain = Xor ^ k;
+        // if(Xor == k) xount++; // we don't have to use this line if we do prefixXor[0] = 1;
+        int remain = Xor ^ k; 
         if(prefixXor.find(remain) != prefixXor.end()) xount += prefixXor[remain];
         prefixXor[Xor]++;
     }
     return xount;
 }
 int main(){
-    vector<int> nums = {4, 2, 2, 6, 4};
+    vector<int> nums = {4, 2, 2, 6, 2};
     int k = 6;
     cout << brute(nums, k) << endl;
     cout << optimal(nums, k) << endl;
