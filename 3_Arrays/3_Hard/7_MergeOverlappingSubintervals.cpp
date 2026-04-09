@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 vector<vector<int>> brute(vector<vector<int>>& nums){
-    // TC: O(nlogn + 2n)
+    // TC: O(nlogn + n^2)
     // SC: O(n)
     vector<vector<int>> overlapped;
     int n = nums.size();
