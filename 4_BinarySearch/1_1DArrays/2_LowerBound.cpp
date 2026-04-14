@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-int brute(vector<int>& nums, int x){
+int linear(vector<int>& nums, int x){
     // TC: O(n)
     // SC: O(1)
     int n = nums.size();
@@ -8,7 +8,7 @@ int brute(vector<int>& nums, int x){
     }
     return n;
 }
-int optimal(vector<int>& nums, int x){
+int binary(vector<int>& nums, int x){
     // TC: O(logn)
     // SC: O(1)
     int n = nums.size();
@@ -29,7 +29,7 @@ int optimal(vector<int>& nums, int x){
 int main(){
     vector<int> nums = {3, 5, 8, 15, 19};
     int x = 9;
-    cout << brute(nums, x) << endl; // we are inserting x at this position
-    cout << optimal(nums, x) << endl;
+    cout << linear(nums, x) << endl; // we are inserting x at this position
+    cout << binary(nums, x) << endl;
     return 0;
 }
