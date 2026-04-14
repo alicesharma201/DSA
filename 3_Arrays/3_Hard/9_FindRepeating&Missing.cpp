@@ -1,5 +1,7 @@
 #include<bits/stdc++.h>
 vector<int> self(vector<int> nums){
+    // TC: O(nlogn + n + n) = O(nlogn)
+    // SC: O(n)
     vector<int> missrep(2, 0);
     int n = nums.size();
     sort(nums.begin(), nums.end());
@@ -72,7 +74,7 @@ vector<int> optimal1(vector<int>& nums){
     x - val1 = y {missing} 
     */
 
-    int n = nums.size();
+    long long n = nums.size();
     long long Sn = (long long)n * (n + 1) / 2;
     long long S2n = (long long)n * (n + 1) * (2 * n + 1) / 6; // sum of square of n natural numbers
     long long S = 0;
@@ -88,7 +90,9 @@ vector<int> optimal1(vector<int>& nums){
     long long missing = repeating - val1;    // from equation (1)
     return {(int)repeating, (int)missing};
 }
-vector<int> optimal2(vector<int>& nums) {
+vector<int> optimal2(vector<int>& nums){
+    // TC: O()
+    // SC: O()
     int n = nums.size(); 
     int xr = 0;
     for (int i = 0; i < n; i++) {
@@ -125,7 +129,7 @@ vector<int> optimal2(vector<int>& nums) {
 }
 int main(){
     vector<int> nums = {1, 2, 3, 6, 7, 5, 7};
-    // for(int i : self(nums)) cout << i << " "; cout << endl;
+    for(int i : self(nums)) cout << i << " "; cout << endl;
     for(int i : brute(nums)) cout << i << " "; cout << endl;
     for(int i : better(nums)) cout << i << " "; cout << endl;
     for(int i : optimal1(nums)) cout << i << " "; cout << endl;
