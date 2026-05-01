@@ -5,6 +5,7 @@ int bruteMaxProduct(vector<int>& nums){
     int n = nums.size();
     int maxProd = nums[0];
     for(int i = 0; i < n; i++){
+        maxProd = max(maxProd, nums[i]);
         if(nums[i] == 0) continue;
         int prod = 1;
         for(int j = i; j < n; j++){
@@ -33,13 +34,13 @@ int optimalMaxProduct1(vector<int>& nums){
         curr_max = max(nums[i], nums[i]*curr_max);
         ans = max(ans, curr_max);
     }
-    return curr_max;
+    return ans;
 }
 int optimalMaxProduct2(vector<int>& nums){
     // TC: O(n)
     // SC: O(1)
     int n = nums.size();
-    int ans = 1;
+    int ans = nums[0];
     int prefix = 1, suffix = 1;
     for(int i = 0; i < n; i++){
         if(prefix == 0) prefix = 1;
