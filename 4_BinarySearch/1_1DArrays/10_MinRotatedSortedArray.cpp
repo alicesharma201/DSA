@@ -13,7 +13,7 @@ int binary(vector<int>& nums){
     // TC: O(logn)
     // SC: O(1)
     int low = 0, high = nums.size() - 1;
-    while(low < high){
+    while(low < high){ // we use < instead of <= to avoid infinite loop since we use high = mid
         int mid = low + (high - low)/2;
         if(nums[mid] > nums[high]) // minimum is in right half
             low = mid + 1;
