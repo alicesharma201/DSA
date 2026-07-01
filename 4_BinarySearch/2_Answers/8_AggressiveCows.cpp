@@ -1,4 +1,4 @@
-// stalls : {0, 9, 4, 2, 11} : {0, 2, 4, 9, 11}
+// stalls : sort{0, 9, 4, 2, 11} : {0, 2, 4, 9, 11}
 // cows : 3
 // output : 4 is the minimum largest distance possible for {0, 4, 11} 
 
@@ -50,6 +50,46 @@ int optimal(int cows, vector<int>& stalls){
     }
     return high;
 }
+/* cowCount inside:
+int maximumDistance(vector<int>& stalls, int cows){
+    int n = stalls.size();
+    sort(stalls.begin(), stalls.end());
+    int mini = stalls[0], maxi = stalls[n-1];
+    for(int d = 1; d <= maxi-mini; d++){
+        int cowCount = 1, lastCow = stalls[0];
+        for(int i = 1; i < n; i++){
+            if(stalls[i]-lastCow >= d){
+                lastCow = stalls[i];
+                cowCount++;
+            }
+            if(cowCount >= cows) break;
+        }
+        if(cowCount < cows){
+            return d - 1;
+        }
+    }
+    return -1;
+}
+int binaryMaximumDistance(vector<int>& stalls, int cows){
+    int n = stalls.size();
+    sort(stalls.begin(), stalls.end());
+    int low = 1, high = stalls[n-1] - stalls[0]; 
+    while(low <= high){
+        int d = (low + high)/2;
+        int cowCount = 1, lastCow = stalls[0];
+        for(int i = 1; i < n; i++){
+            if(stalls[i]-lastCow >= d){
+                lastCow = stalls[i];
+                cowCount++;
+            }
+            if(cowCount >= cows) break;
+        }
+        if(cowCount < cows) high = d - 1;
+        else low = d + 1;
+    }
+    return high;
+}
+*/
 int main(){
     int cows = 4;
     vector<int> stalls = {0, 3, 4, 7, 10, 9}; 
