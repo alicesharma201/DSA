@@ -13,6 +13,7 @@ int studentsRecieved(vector<int>& books, int maxPages){
     return studentsAllocated;
 }
 int linearBookAllocate(vector<int>& books, int m){
+    // TC: O(N * (high-low+1))
     if(m > books.size()) return -1;
     int low = *max_element(books.begin(), books.end());
     int high = accumulate(books.begin(), books.end(), 0);
@@ -22,6 +23,7 @@ int linearBookAllocate(vector<int>& books, int m){
     return -1;
 }
 int binaryBookAllocate(vector<int>& books, int m){
+    // TC: O(N * log(high-low+1))
     if(m > books.size()) return -1;
     int low = *max_element(books.begin(), books.end());
     int high = accumulate(books.begin(), books.end(), 0);
@@ -33,7 +35,7 @@ int binaryBookAllocate(vector<int>& books, int m){
             high = mid - 1;
         } else low = mid + 1;
     }
-    return low;
+    return low; // opposite polarity: before low pointed at not possible, so in the end it would point at possible which will be our answer
 }
 int main(){
     vector<int> books = {12, 34, 67, 90};
