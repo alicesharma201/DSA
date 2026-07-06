@@ -1,22 +1,23 @@
 #include<bits/stdc++.h>
-int linearMaxOnes(int n, int m, vector<vector<int>>& mat){
-    // TC: O(n*m)
+int linearMaxOnes(vector<vector<int>>& mat, int n, int m){
+    // TC: O(n * m)
     int maxOnes = 0;
-    int OnesIdx = -1;
+    int onesIdx = -1;
     for(int i = 0; i < n; i++){
         int onesCount = 0;
         for(int j = 0; j < m; j++){
-            if(mat[i][j] == 1) onesCount++;
+            // if(mat[i][j] == 1) onesCount++;
+            onesCount += mat[i][j];
         }
         if(maxOnes < onesCount){
             maxOnes = onesCount;
-            OnesIdx = i;
+            onesIdx = i;
         }
     }
-    return OnesIdx;
+    return onesIdx;
 }
-int binaryMaxOnes(int n, int m, vector<vector<int>>& mat){
-    // TC: O(n*logm)
+int binaryMaxOnes(vector<vector<int>>& mat, int n, int m){
+    // TC: O(n * logm)
     int maxOnes = 0;
     int OnesIdx = -1;
     for(int i = 0; i < n; i++){
@@ -48,8 +49,8 @@ int main(){
     //     {0, 0}
     // };
 
-    cout << linearMaxOnes(n, m, mat) << endl;
-    cout << binaryMaxOnes(n, m, mat) << endl;
+    cout << linearMaxOnes(mat, n, m) << endl;
+    cout << binaryMaxOnes(mat, n, m) << endl;
 
     return 0;
 }
