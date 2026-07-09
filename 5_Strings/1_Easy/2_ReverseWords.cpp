@@ -23,22 +23,19 @@ string bruteReverseWords(string s){
 }
 string optimalReverseWords(string s){
     // TC: O(n)
-    // SC: O(1)
+    // SC: O(n)
     string result = "";
     int i = s.size() - 1;
     while (i >= 0) {
-        while (i >= 0 && s[i] == ' ') {
-            i--;
-        }
-        if (i < 0) break;
-        int end = i;
-        while (i >= 0 && s[i] != ' ') {
-            i--;
-        }
-        string word = s.substr(i + 1, end - i);
-        if (!result.empty()) {
-            result += " ";
-        }
+        while (i >= 0 && s[i] == ' ') i--;
+        if (i < 0) break; // when there are no longer any words left
+
+        int end = i; // marking the end of the word
+        while (i >= 0 && s[i] != ' ')  i--; // find beginning of word
+
+        string word = s.substr(i + 1, end - i); // extract the word, parameters: start of the word, length of the word
+        
+        if (!result.empty()) result += " ";
         result += word;
     }
     return result;
