@@ -3,7 +3,7 @@ int countDepth(string s){
     // TC: O(n)
     // SC: O(1)
     int maxi = 0, cnt = 0;
-    for(int i : s){
+    for(char i : s){
         if(i == '(') cnt++;
         else if(i == ')') cnt--;
         maxi = max(maxi, cnt);
