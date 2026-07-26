@@ -80,14 +80,33 @@ Node* deleteK(Node* head, int k){
     delete temp;
     return head;
 }
+void deleteGivenNode(Node* temp){
+    // constraint: given node can't be head
+    // TC: O(1)
+    Node* prev = temp->back;
+    Node* ahead = temp->next;
+    if(ahead == nullptr){
+        prev->next = nullptr;
+        temp->back = nullptr;
+        delete temp;
+        return;
+    }
+    prev->next = ahead;
+    ahead->back = prev;
+    temp->back = nullptr;
+    temp->next = nullptr;
+    delete temp;
+}
 int main(){
     Node* head = new Node(1, nullptr, nullptr);
     head->next = new Node(2, nullptr, head);
     head->next->next = new Node(3, nullptr, head->next);
     head->next->next->next = new Node(4, nullptr, head->next->next);
-    // head = deleteHead(head);
-    // head = deleteTail(head);
-    head = deleteK(head, 2);
-    print(head);
+    
+    head = deleteK(head, 2); // deletes 2 (2nd position)
+    deleteGivenNode(head->next->next); // deletes 3 (based on data)
+    head = deleteHead(head); // deletes head 1
+    head = deleteTail(head); // deleted tail 4
+    print(head); // nothing is left to print
     return 0;
 }
