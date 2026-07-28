@@ -15,16 +15,6 @@ void print(Node* head){
     }
     cout << endl;
 }
-// Node* reverseDoublyLL(Node* head){
-//     Node* temp = head;
-//     while(temp){
-//         Node* tempPtr = temp->back;
-//         temp->back = temp->next;
-//         temp->next = tempPtr;
-//         temp = temp->next;
-//     }
-//     return temp;
-// }
 Node* bruteReverseDoublyLL(Node* head){
     // TC: O(2n)
     // SC: O(n)
