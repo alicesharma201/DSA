@@ -6,20 +6,19 @@ struct ListNode{
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
-bool bruteDetectLoop(ListNode* head){
+ListNode* bruteStartingPoint(ListNode* head){
     // TC: O(n)
     // SC: O(n)
     ListNode* temp = head;
     unordered_map<ListNode*,int> hash;
     while(temp){
-        if(hash.find(temp) != hash.end()) return true; 
-        // if(hash[temp] > 0) return true;
+        if(hash.find(temp) != hash.end()) return temp;
         hash[temp]++;
         temp = temp->next;
     }
-    return false;
+    return nullptr;
 }
-bool optimalDetectLoop(ListNode* head){
+ListNode* optimalStartingPoint(ListNode* head){
     // TC: O(n)
     // SC: O(1)
     ListNode* slow = head;
@@ -27,9 +26,16 @@ bool optimalDetectLoop(ListNode* head){
     while(fast != nullptr && fast->next != nullptr){
         slow = slow->next;
         fast = fast->next->next;
-        if(slow == fast) return true;
+        if(slow == fast){
+            slow = head;
+            while(slow != fast){
+                slow = slow->next;
+                fast = fast->next;
+            }
+            return slow;
+        }
     }
-    return false;
+    return nullptr;
 }
 int main(){
     ListNode* head = new ListNode(1);
@@ -38,8 +44,10 @@ int main(){
     head->next->next->next = new ListNode(4);
     head->next->next->next->next = new ListNode(5, head->next->next);
     
-    cout << (bruteDetectLoop(head) ? "Loop Exists\n" : "Loop doesn't Exist\n");
-    cout << (optimalDetectLoop(head) ? "Loop Exists\n" : "Loop doesn't Exist\n");
+    // ListNode* ptr = bruteStartingPoint(head);
+    ListNode* ptr = optimalStartingPoint(head);
+    if(ptr == nullptr) cout << "There is no loop.\n";
+    else cout << "The starting point of loop is " << ptr->val << endl; 
 
     return 0;
 }
