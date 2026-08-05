@@ -80,6 +80,22 @@ Node* deleteK(Node* head, int k){
     delete temp;
     return head;
 }
+Node* betterDeleteK(Node* head, int k){
+    // TC: O(n)
+    // SC: O(1)
+    Node* temp = head;
+    for(int i = 1; i < k && temp; i++){
+        temp = temp->next;
+    }
+    if(temp == nullptr) return head;
+    Node* prev = temp->back;
+    Node* ahead = temp->next;
+    if(prev) prev->next = ahead;
+    else head = ahead;
+    if(ahead) ahead->back = prev;
+    delete temp;
+    return head;
+}
 void deleteGivenNode(Node* temp){
     // constraint: given node can't be head
     // TC: O(1)
@@ -102,11 +118,14 @@ int main(){
     head->next = new Node(2, nullptr, head);
     head->next->next = new Node(3, nullptr, head->next);
     head->next->next->next = new Node(4, nullptr, head->next->next);
+    head->next->next->next->next = new Node(5, nullptr, head->next->next->next);
     
-    head = deleteK(head, 2); // deletes 2 (2nd position)
-    deleteGivenNode(head->next->next); // deletes 3 (based on data)
-    head = deleteHead(head); // deletes head 1
-    head = deleteTail(head); // deleted tail 4
+    // head = deleteHead(head);
+    // head = deleteTail(head);
+    // head = deleteK(head, 2);
+    betterDeleteK(head, 3);
+    // deleteGivenNode(head->next->next);
+
     print(head); // nothing is left to print
     return 0;
 }
