@@ -32,13 +32,15 @@ ListNode* findKth(ListNode* temp, int k){
     return nullptr;
 }
 ListNode* reverseKNodes(ListNode* head, int k){
+    // TC: O(n)
+    // SC: O(1)
     ListNode* temp = head;
     ListNode* nextNode = nullptr; // this will become Kth after reversal will get stored at temp
     ListNode* prevNode = nullptr; // this will become temp after reversal and point to Kth Node
     while(temp){
         ListNode* Kth = findKth(temp, k);
         if(Kth == nullptr){
-            prevNode->next = temp;
+            if(prevNode) prevNode->next = temp;
             break;
         }
         nextNode = Kth->next;
