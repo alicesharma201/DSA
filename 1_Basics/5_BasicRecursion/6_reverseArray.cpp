@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 
-void self(int arr[], int aux[], int size, int index){
+void self(int arr[], vector<int>& aux, int n, int index){
     // recursive approach
-    if(index == size) return;
-    aux[index] = arr[size-1-index];
-    self(arr, aux, size, index+1);
+    if(index == n) return;
+    aux[index] = arr[n-1-index];
+    self(arr, aux, n, index+1);
 }
 
 vector<int> brute(vector<int> vec){
-    int size = vec.size();
-    vector<int> aux(size);
-    for(int i = 0; i < size; i++){
-        aux[i] = vec[size-1-i];
+    int n = vec.size();
+    vector<int> aux(n);
+    for(int i = 0; i < n; i++){
+        aux[i] = vec[n-1-i];
     }
     return aux;
 }
@@ -32,11 +32,11 @@ int main(){
     
     int arr[] = {10, 20, 30, 40, 50};
 
-    int size = sizeof(arr)/sizeof(arr[0]);
-    int aux[size];
+    int n = sizeof(arr)/sizeof(arr[0]);
+    vector<int> aux(n);
 
     cout << "Self: ";
-    self(arr, aux, size, 0); 
+    self(arr, aux, n, 0); 
     for(int i : aux) cout << i << " ";
     cout << endl;
 
