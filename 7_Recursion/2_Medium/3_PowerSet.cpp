@@ -39,7 +39,7 @@ vector<string> powerSet2(string str){
 int main(){
     string str = "abc";
     // string str = "aa";
-    // vector<string> res = powerSet1(str); // bit manipulations
+    // vector<string> res = powerSet1(str); // bit manipulation
     vector<string> res = powerSet2(str); // recursion
     for(string i : res){
         cout << "\"" << i << "\"" << " ";

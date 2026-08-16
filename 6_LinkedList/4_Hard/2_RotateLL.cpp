@@ -16,7 +16,7 @@ void print(ListNode* head){
     // TC: O(n*k)
     // SC: O(1)
 ListNode* rotateRight(ListNode* head, int k){
-    // Turn it into a circular ll and then break it at lenght-k
+    // Turn it into a circular ll and then break it at length-k
     // TC: O(n)
     // SC: O(1)
     if(head == nullptr || head->next == nullptr || k == 0) return head;
