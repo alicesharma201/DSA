@@ -14,6 +14,8 @@ void helper(int i, int k, vector<int>& nums, vector<int>& val, vector<vector<int
     }
 }
 vector<vector<int>> combinationSum2(vector<int>& nums, int k){
+    // TC: O(2^n * k), For each of the 2^n subsequences, storing takes O(k) time where k is the average length of each combination
+    // SC: O(k * x), To store all x valid combinations, each of average length k
     vector<vector<int>> res;
     vector<int> val;
     helper(0, k, nums, val, res);
