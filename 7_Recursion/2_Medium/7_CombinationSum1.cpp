@@ -16,7 +16,7 @@ void helper(vector<int>& nums, int k, vector<int>& val, vector<vector<int>>& res
 }
 vector<vector<int>> combinationSum(vector<int>& nums, int k){
     // TC: O(2^t * k)
-    // SC: O(k * x) where k : length, x : combinations
+    // SC: O(k * x) where k : average length of combination, x : combinations
     vector<int> val;
     vector<vector<int>> res;
     helper(nums, k, val, res, 0);
