@@ -20,6 +20,8 @@ vector<string> letterCombinations(string digits){
     return res;
 }
 int main(){
-    
+    for(auto i : letterCombinations("23")){
+        cout << i << " ";
+    }
     return 0;
 }
