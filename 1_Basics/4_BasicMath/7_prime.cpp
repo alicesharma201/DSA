@@ -10,7 +10,7 @@ bool brute(int n){
     return false;
 }
 bool optimal(int n){
-    int cnt;
+    int cnt = 0;
     for(int i = 1; i * i <= n; i++){
         if(n % i == 0){
             cnt++;
