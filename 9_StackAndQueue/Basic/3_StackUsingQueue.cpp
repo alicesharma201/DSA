@@ -2,10 +2,10 @@
 using namespace std;
 void printQueue(queue<int> q) {
     while(!q.empty()) {
-        std::cout << q.front() << " ";
+        cout << q.front() << " ";
         q.pop();
     }
-    std::cout << "\n";
+    cout << "\n";
 }
 class MyStack{
     queue<int> q;
