@@ -29,12 +29,23 @@ string infixToPostfix(string& infix){
         }
         else{ 
             // I found an operator. Before putting it on the stack, get rid of every operator already on the stack that should happen before me.
-            while(!stk.empty() && precedence[i] <= precedence[stk.top()]){
+            while(!stk.empty() && stk.top() != '(' && precedence[i] <= precedence[stk.top()]){
                 postfix += stk.top();
                 stk.pop();
             }
             stk.push(i);
         }
+        // else{ // use this when there are multiple ^ in an infix expression, because ^ uses right to left associativity
+        //     while(!stk.empty() && stk.top() != '(' && priority[i] < priority[stk.top()]){
+        //         postfix += stk.top();
+        //         stk.pop();
+        //     }
+        //     if(!stk.empty() && stk.top() != '(' && priority[i] == priority[stk.top()] && i != '^'){
+        //         postfix += stk.top();
+        //         stk.pop();
+        //     }
+        //     stk.push(i);
+        // }
     }
     while(!stk.empty()){
         postfix.push_back(stk.top());
